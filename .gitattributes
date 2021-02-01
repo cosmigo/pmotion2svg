@@ -1,0 +1,44 @@
+############################################
+#  pmotion2svg:                            #
+#  https://github.com/tajmone/pmotion2svg  #
+############################################
+
+* text=auto
+
+## Repository Configuration
+###########################
+.editorconfig    text eol=lf
+.gitlab-ci.yml   text eol=lf
+.travis.yml      text eol=lf
+.gitattributes   text eol=lf
+.gitconfig       text eol=lf
+.gitignore       text eol=lf
+.gitmodules      text eol=lf
+
+## Documentation Files
+######################
+*.md      text
+*.txt     text
+LICENSE   text
+
+## PureBasic Files
+##################
+[attr]PureBasic text linguist-language=PureBasic
+*.cfg   text linguist-generated=true
+*.pb    PureBasic
+*.pbf   PureBasic
+*.pbi   PureBasic
+*.pbp   linguist-language=XML linguist-generated=true
+
+## Shell Scripts
+################
+*.bat   text eol=crlf
+*.sh    text eol=lf
+
+## Images
+#########
+*.pmp    binary
+*.svg    binary
+*.png    binary
+
+# EOF #

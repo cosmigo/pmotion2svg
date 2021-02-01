@@ -1,0 +1,66 @@
+############################################
+#  pmotion2svg:                            #
+#  https://github.com/tajmone/pmotion2svg  #
+############################################
+
+## PureBasic
+############
+*.pb.cfg
+*.pbi.cfg
+*.pbp
+project.cfg
+
+*.dll
+*.exp
+*.lib
+
+## HTML Previews
+################
+README.html
+
+## TMP Work Files
+#################
+___*.*
+
+# Links and URLs:
+*.lnk
+*.url
+
+
+## Apps Local Settings & Temp Files
+###################################
+
+# Chrome's debug logs for local HTML pages:
+debug.log
+
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+# Based on ".gitignore" created by:
+# https://www.toptal.com/developers/gitignore/api/windows
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# EOF #

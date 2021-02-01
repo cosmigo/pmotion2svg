@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" shape-rendering="crispEdges">
+<g id="sprite" stroke="none">
+<rect x="0" y="30" width="5" height="40" fill="rgb(255,0,0)"/>
+<rect x="5" y="15" width="5" height="50" fill="rgb(255,0,0)"/>
+<rect x="10" y="10" width="5" height="50" fill="rgb(255,0,0)"/>
+<rect x="15" y="5" width="5" height="15" fill="rgb(255,0,0)"/>
+<rect x="15" y="20" width="5" height="15" fill="rgb(222,222,255)"/>
+<rect x="15" y="35" width="5" height="30" fill="rgb(255,0,0)"/>
+<rect x="20" y="5" width="5" height="10" fill="rgb(255,0,0)"/>
+<rect x="20" y="15" width="5" height="25" fill="rgb(222,222,255)"/>
+<rect x="20" y="40" width="5" height="30" fill="rgb(255,0,0)"/>
+<rect x="25" y="0" width="5" height="15" fill="rgb(255,0,0)"/>
+<rect x="25" y="15" width="5" height="10" fill="rgb(222,222,255)"/>
+<rect x="25" y="25" width="5" height="10" fill="rgb(33,33,255)"/>
+<rect x="25" y="35" width="5" height="5" fill="rgb(222,222,255)"/>
+<rect x="25" y="40" width="5" height="30" fill="rgb(255,0,0)"/>
+<rect x="30" y="0" width="5" height="20" fill="rgb(255,0,0)"/>
+<rect x="30" y="20" width="5" height="5" fill="rgb(222,222,255)"/>
+<rect x="30" y="25" width="5" height="10" fill="rgb(33,33,255)"/>
+<rect x="30" y="35" width="5" height="25" fill="rgb(255,0,0)"/>
+<rect x="35" y="0" width="5" height="60" fill="rgb(255,0,0)"/>
+<rect x="40" y="0" width="5" height="70" fill="rgb(255,0,0)"/>
+<rect x="45" y="5" width="5" height="15" fill="rgb(255,0,0)"/>
+<rect x="45" y="20" width="5" height="15" fill="rgb(222,222,255)"/>
+<rect x="45" y="35" width="5" height="35" fill="rgb(255,0,0)"/>
+<rect x="50" y="5" width="5" height="10" fill="rgb(255,0,0)"/>
+<rect x="50" y="15" width="5" height="25" fill="rgb(222,222,255)"/>
+<rect x="50" y="40" width="5" height="25" fill="rgb(255,0,0)"/>
+<rect x="55" y="10" width="5" height="5" fill="rgb(255,0,0)"/>
+<rect x="55" y="15" width="5" height="10" fill="rgb(222,222,255)"/>
+<rect x="55" y="25" width="5" height="10" fill="rgb(33,33,255)"/>
+<rect x="55" y="35" width="5" height="5" fill="rgb(222,222,255)"/>
+<rect x="55" y="40" width="5" height="20" fill="rgb(255,0,0)"/>
+<rect x="60" y="15" width="5" height="5" fill="rgb(255,0,0)"/>
+<rect x="60" y="20" width="5" height="5" fill="rgb(222,222,255)"/>
+<rect x="60" y="25" width="5" height="10" fill="rgb(33,33,255)"/>
+<rect x="60" y="35" width="5" height="30" fill="rgb(255,0,0)"/>
+<rect x="65" y="30" width="5" height="40" fill="rgb(255,0,0)"/>
+</g>
+</svg>

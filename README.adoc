@@ -1,0 +1,205 @@
+= pmotion2svg
+:author: Tristano Ajmone
+:revdate: 2021-01-31
+:pm2svg_ver: 1.0.0
+:PMNG_ver: 7.2.7
+:PB_ver: 5.73
+:revnumber: {pm2svg_ver}
+:lang: en
+:doctype: article
+// TOC Settings:
+:toclevels: 5
+// TOC ... HTML Backend Hack to show TOC on the Left
+ifdef::backend-html5[]
+:toc: left
+endif::[]
+// TOC ... GitHub Hack to show TOC after Preamble (required)
+ifdef::env-github[]
+:toc: macro
+endif::[]
+// Misc Settings:
+:idprefix:
+:!sectnums:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors: true
+// GitHub Settings for Admonitions Icons:
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :heavy_exclamation_mark:
+:note-caption: :information_source:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+// »»» CUSTOM ATTRIBUTES »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+:tajmone: https://github.com/tajmone[Tristano Ajmone^,title="View Tristano Ajmone's GitHub profile"]
+:PMNG:  pass:q[https://www.cosmigo.com/[*Pro Motion NG*^,title="Visit Pro Motion website at Cosmigo.com"]]
+:PureBasic: https://www.purebasic.com[PureBasic^,title="Visit PureBasic website"]
+:MIT_License: link:#license[MIT License,title="View MIT License"]
+:CosmigoForum: https://community.cosmigo.com[Cosmigo Forum^,title="Visit Cosmigo Forum"]
+// Badges:
+:badge_MIT: https://img.shields.io/badge/license-MIT-00b5da.svg
+:badge_MIT_link: #license
+:badge_pm2svg: https://img.shields.io/badge/release-{pm2svg_ver}-brightgreen
+:badge_pm2svg_link: https://github.com/tajmone/pmotion2svg/releases/
+:badge_Travis: https://travis-ci.org/tajmone/hugo-book.svg?branch=main
+:badge_PB: https://img.shields.io/badge/PureBasic-{PB_ver}-orange
+:badge_PB_link: https://www.purebasic.com
+:badge_PMNG: https://img.shields.io/badge/Pro%20Motion%20NG-{PMNG_ver}-orange
+:badge_PMNG_link: https://www.cosmigo.com
+// 3rd Party Tools:
+:px2svg: pass:q[https://github.com/meyerweb/px2svg[*px2svg*^,title="Visit px2svg repository on GitHub"]]
+:flamingshame: pass:q[https://github.com/meyerweb/flaming-shame[*flaming-shame*^,title="Visit flaming-shame repository on GitHub"]]
+:SVGO: pass:q[https://www.npmjs.com/package/svgo[*SVGO*^,title="SVGO page at NPM"]]
+:SVGOMG: pass:q[https://jakearchibald.github.io/svgomg/[*SVGOMG*^,title="SVGOMG online GUI"]]
+// people:
+:EricMeyer: https://github.com/meyerweb[Eric Meyer^,title="View Eric Meyer's GitHub profile"]
+:AmeliaBellamyRoyds: https://github.com/AmeliaBR[Amelia Bellamy-Royds^,title="View Amelia Bellamy-Royds's GitHub profile"]
+:Cafolla: https://github.com/robincafolla[Robin Cafolla^,title="View Robin Cafolla's GitHub profile"]
+:NealBrooks: https://github.com/nealio82[Neal Brooks^,title="View Neal Brooks's GitHub profile"]
+:butera: https://github.com/nyamsprod[ignace nyamagana butera^,title="View ignace nyamagana butera's GitHub profile"]
+
+// *****************************************************************************
+// *                                                                           *
+// *                            Document Preamble                              *
+// *                                                                           *
+// *****************************************************************************
+
+image:{badge_MIT}[title="MIT License",link={badge_MIT_link}]{nbsp}
+image:{badge_pm2svg}[title="pmotion2svg version",link={badge_pm2svg_link}]{nbsp}
+image:{badge_Travis}[title="Travis CI Build Status for EditorConfig Validation"]{nbsp}
+image:{badge_PB}[title="PureBasic version",link={badge_PB_link}]{nbsp}
+image:{badge_PMNG}[title="Pro Motion NG version",link={badge_PMNG_link}]
+
+[.float-group]
+--
+[.right]
+image:samples/blinky1.svg[Blinky,200]
+
+A {PMNG} plug-in to neatly convert images to SVG, without loosing the Pixel Art look and feel.
+
+Created in {PureBasic} by {tajmone}, released under {MIT_License}.
+
+- https://github.com/tajmone/pmotion2svg
+--
+
+// >>> GitLab/GitHub hacks to ensure TOC is shown after Preamble: >>>>>>>>>>>>>>
+ifndef::backend-html5[]
+'''
+toc::[]
+'''
+endif::[]
+ifdef::env-github[]
+'''
+toc::[]
+'''
+endif::[]
+// <<< GitHub/GitLab hacks <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+== About
+
+This plug-in will extend {PMNG}`'s functionality to support exporting images to the SVG format in a manner that preserves their Pixel Art look and feel.
+
+
+=== Features
+
+At export time, the user is presented with and options dialog where he/she can choose:
+
+- [red]##_Scale Factor_## -- how many SVG pixels will be used to represent each original pixel when drawing it as a filled square.
+- [red]##_Padding_## -- the amount of SVG pixels used as padding around the generated image.
+- [red]##_Draw Pixels Grid_## -- if checked, the generated image will display a 1px grid (black) between the original pixels and around the image.
+- [red]##_Preserve Transparency_## -- if an indexed image has a transparency color defined, you can choose whether to preserve its transparency or paint its original color as an SVG rectangle representing the image background.
+
+
+=== SVG Optimization
+
+When converting Pixel Art to SVG, *pmotion2svg* will draw consecutive pixels of the same color as a single rectangle, thus reducing the size of the generated SVG.
+Furthermore, it will generate the SVG by scanning the raster image both horizontally and vertically, and will then use the version which takes less memory.
+This optimization technique was borrowed from {EricMeyer}`'s {px2svg} tool.
+
+Nonetheless, you're strongly advised to further optimize the generated SVG images with a dedicated optimizer like SVGO:
+
+- {SVGO} -- command-line SVG Optimizer (Node.js).
+- {SVGOMG} -- SVGO web interface (no installation required).
+
+Processing the SVG images generated with this plugin with an SVGO-based optimizer can reduce considerably their size (usually, a size gain between 40% and 80%).
+
+[TIP]
+========================
+The *pmotion2svg* options dialog contains a menu with links to these SVG optimizers, so you can easily access the {SVGOMG} online tool to optimize your generated SVGs directly in your browser.
+========================
+
+
+== Installing
+
+Download the latest precompiled binary package from the
+https://github.com/tajmone/pmotion2svg/releases[releases page^],
+unpack its contents and copy the `pmotion2svg.dll` file to the `plugins/` folder of Pro Motion's installation folder.
+
+Depending on your Windows OS bitness, the plugins directory path will be located either at:
+
+[horizontal]
+Windows 64-bit -> :: `%PROGRAMFILES(X86)%\cosmigo\Pro Motion NG\plugins\`
+Windows 32-bit -> :: `%PROGRAMFILES%\cosmigo\Pro Motion NG\plugins\`
+
+[IMPORTANT]
+====================================
+Future editions of {PMNG} might change the location of the `plugins/` folder to the User's `AppData/` directory tree -- a feature which has been planned for quite a while.
+In that case, just copy the plug-in DLL to the new `plugins/` folder path, as indicated in the
+https://www.cosmigo.com/promotion/docs/onlinehelp/UsingPlugins.htm[_Using Plugins_^]
+section of
+https://www.cosmigo.com/promotion/docs/onlinehelp/main.htm[Pro Motion NG's Documentation^].
+====================================
+
+
+=== System Requirements
+
+This plug-in was tested under Windows 10 x64 using Pro Motion NG version {PMNG_ver}, but should work also with older versions of Pro Motion that support plug-ins via the
+https://www.cosmigo.com/pixel_animation_software/plugins/developer-interface#File_IO_Plugin_Interface[File I/O interface^,title="Learn more about Pro Motion's File I/O interface"].
+
+If you need support for using this plug-in with older version of Pro Motion, please ask for help on the {CosmigoForum}.
+
+If you need to report a *pmotion2svg* bug or propose a new feature, just
+https://github.com/tajmone/pmotion2svg/issues[open an Issue].
+
+
+== Credits
+
+This plug-in was heavily inspired by the {px2svg} tool (formerly {flamingshame}) by {EricMeyer}, {AmeliaBellamyRoyds}, {Cafolla}, {NealBrooks} and {butera}:
+
+- https://github.com/meyerweb/px2svg[^,title= "Visit px2svg repository on GitHub"]
+
+
+== License
+
+- link:./LICENSE[`LICENSE`,title="View LICENSE file"]
+
+..............................................................................
+MIT License
+
+Copyright (c) 2021 Tristano Ajmone
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+..............................................................................
+
+// EOF //
