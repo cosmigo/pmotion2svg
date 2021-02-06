@@ -11,10 +11,11 @@ EndProcedure
 
 Procedure.s GetRGBStr(colorIndex)
   Shared ImageData
+  offset.i = colorIndex & $FF
   With ImageData
-    RGBVal$ = StrU(PeekB(\Palette + colorIndex * 3), #PB_Byte) + ","
-    RGBVal$ + StrU(PeekB(\Palette + colorIndex * 3 + 1), #PB_Byte) + ","
-    RGBVal$ + StrU(PeekB(\Palette + colorIndex * 3 + 2), #PB_Byte)
+    RGBVal$ = StrU(PeekB(\Palette + offset * 3), #PB_Byte) + ","
+    RGBVal$ + StrU(PeekB(\Palette + offset * 3 + 1), #PB_Byte) + ","
+    RGBVal$ + StrU(PeekB(\Palette + offset * 3 + 2), #PB_Byte)
   EndWith
   ProcedureReturn RGBVal$
 EndProcedure

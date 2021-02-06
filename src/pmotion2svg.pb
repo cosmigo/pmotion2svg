@@ -6,8 +6,8 @@
 ; *                     Cosmigo Pro Motion File I/O Plugin                     *
 ; *                                                                            *
 ;{******************************************************************************
-#PLUGIN_VER$  = "1.0.0"       ; Pro Motion NG 7.2.7
-#PLUGIN_DATE$ = "2021-01-31"
+#PLUGIN_VER$  = "1.1.0"       ; Pro Motion NG 7.2.7
+#PLUGIN_DATE$ = "2021-02-06"
 #PUREBASIC_V  = 573           ; PureBasic 5.73 (x86)
 #Copyright$   = "© 2021 by Tristano Ajmone, MIT License."
 #Repository$  =  "https://github.com/tajmone/pmotion2svg"
