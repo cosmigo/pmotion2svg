@@ -45,7 +45,7 @@ endif::[]
 :badge_MIT_link: #license
 :badge_pm2svg: https://img.shields.io/badge/release-{pm2svg_ver}-brightgreen
 :badge_pm2svg_link: https://github.com/tajmone/pmotion2svg/releases/
-:badge_Travis: https://travis-ci.org/tajmone/hugo-book.svg?branch=main
+:badge_Travis: https://travis-ci.com/tajmone/pmotion2svg.svg?branch=main
 :badge_PB: https://img.shields.io/badge/PureBasic-{PB_ver}-orange
 :badge_PB_link: https://www.purebasic.com
 :badge_PMNG: https://img.shields.io/badge/Pro%20Motion%20NG-{PMNG_ver}-orange
