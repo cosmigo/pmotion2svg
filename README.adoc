@@ -44,8 +44,8 @@ endif::[]
 :badge_MIT: https://img.shields.io/badge/license-MIT-00b5da.svg
 :badge_MIT_link: #license
 :badge_pm2svg: https://img.shields.io/badge/release-{pm2svg_ver}-brightgreen
-:badge_pm2svg_link: https://github.com/tajmone/pmotion2svg/releases/
-:badge_Travis: https://travis-ci.com/tajmone/pmotion2svg.svg?branch=main
+:badge_pm2svg_link: https://github.com/cosmigo/pmotion2svg/releases/
+:badge_Travis: https://travis-ci.com/cosmigo/pmotion2svg.svg?branch=main
 :badge_PB: https://img.shields.io/badge/PureBasic-{PB_ver}-orange
 :badge_PB_link: https://www.purebasic.com
 :badge_PMNG: https://img.shields.io/badge/Pro%20Motion%20NG-{PMNG_ver}-orange
@@ -83,7 +83,7 @@ A {PMNG} plug-in to neatly convert images to SVG, without loosing the Pixel Art 
 
 Created in {PureBasic} by {tajmone}, released under {MIT_License}.
 
-- https://github.com/tajmone/pmotion2svg
+- https://github.com/cosmigo/pmotion2svg
 --
 
 // >>> GitLab/GitHub hacks to ensure TOC is shown after Preamble: >>>>>>>>>>>>>>
@@ -137,7 +137,7 @@ The *pmotion2svg* options dialog contains a menu with links to these SVG optimiz
 == Installing
 
 Download the latest precompiled binary package from the
-https://github.com/tajmone/pmotion2svg/releases[releases page^],
+https://github.com/cosmigo/pmotion2svg/releases[releases page^],
 unpack its contents and copy the `pmotion2svg.dll` file to the `plugins/` folder of Pro Motion's installation folder.
 
 Depending on your Windows OS bitness, the plugins directory path will be located either at:
@@ -164,7 +164,7 @@ https://www.cosmigo.com/pixel_animation_software/plugins/developer-interface#Fil
 If you need support for using this plug-in with older version of Pro Motion, please ask for help on the {CosmigoForum}.
 
 If you need to report a *pmotion2svg* bug or propose a new feature, just
-https://github.com/tajmone/pmotion2svg/issues[open an Issue].
+https://github.com/cosmigo/pmotion2svg/issues[open an Issue].
 
 
 == Credits
