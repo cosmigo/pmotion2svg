@@ -1,7 +1,7 @@
 = pmotion2svg
 :author: Tristano Ajmone
-:revdate: 2021-01-31
-:pm2svg_ver: 1.0.0
+:revdate: 2021-02-06
+:pm2svg_ver: 1.1.0
 :PMNG_ver: 7.2.7
 :PB_ver: 5.73
 :revnumber: {pm2svg_ver}
