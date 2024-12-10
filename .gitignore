@@ -7,7 +7,6 @@
 ############
 *.pb.cfg
 *.pbi.cfg
-*.pbp
 project.cfg
 
 *.dll

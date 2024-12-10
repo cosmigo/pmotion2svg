@@ -1,9 +1,9 @@
 = pmotion2svg
 :author: Tristano Ajmone
-:revdate: 2021-02-06
-:pm2svg_ver: 1.1.0
-:PMNG_ver: 7.2.7
-:PB_ver: 5.73
+:revdate: 2024-12-10
+:pm2svg_ver: 1.1.1
+:PMNG_ver: 8.0.10
+:PB_ver: 6.12
 :revnumber: {pm2svg_ver}
 :lang: en
 :doctype: article
@@ -70,7 +70,7 @@ endif::[]
 
 image:{badge_MIT}[title="MIT License",link={badge_MIT_link}]{nbsp}
 image:{badge_pm2svg}[title="pmotion2svg version",link={badge_pm2svg_link}]{nbsp}
-image:{badge_Travis}[title="Travis CI Build Status for EditorConfig Validation"]{nbsp}
+// image:{badge_Travis}[title="Travis CI Build Status for EditorConfig Validation"]{nbsp}
 image:{badge_PB}[title="PureBasic version",link={badge_PB_link}]{nbsp}
 image:{badge_PMNG}[title="Pro Motion NG version",link={badge_PMNG_link}]
 
@@ -104,10 +104,18 @@ endif::[]
 
 This plug-in will extend {PMNG}`'s functionality to support exporting images to the SVG format in a manner that preserves their Pixel Art look and feel.
 
+[NOTE]
+================================================================================
+Since v1.1.1 pmotion2svg now comes in both 64-bit and 32-bit formats:
+
+* `pmotion2svg_x64.dll` (64-bit): Pro Motion NG V8 and above.
+* `pmotion2svg_x32.dll` (32-bit): Older versions of Pro Motion, including Pro Motion NG 32-bit.
+================================================================================
+
 
 === Features
 
-At export time, the user is presented with and options dialog where he/she can choose:
+At export time, the user is presented with an options dialog where he/she can choose:
 
 - [red]##_Scale Factor_## -- how many SVG pixels will be used to represent each original pixel when drawing it as a filled square.
 - [red]##_Padding_## -- the amount of SVG pixels used as padding around the generated image.
@@ -138,19 +146,29 @@ The *pmotion2svg* options dialog contains a menu with links to these SVG optimiz
 
 Download the latest precompiled binary package from the
 https://github.com/cosmigo/pmotion2svg/releases[releases page^],
-unpack its contents and copy the `pmotion2svg.dll` file to the `plugins/` folder of Pro Motion's installation folder.
-
-Depending on your Windows OS bitness, the plugins directory path will be located either at:
+unpack its contents and pick the pmotion2svg DLL that matches the bitness of your Pro Motion application:
 
 [horizontal]
-Windows 64-bit -> :: `%PROGRAMFILES(X86)%\cosmigo\Pro Motion NG\plugins\`
-Windows 32-bit -> :: `%PROGRAMFILES%\cosmigo\Pro Motion NG\plugins\`
+Pro{nbsp}Motion{nbsp}64-bit -> :: `pmotion2svg_x64.dll` (PMNG V8 and above)
+Pro{nbsp}Motion{nbsp}32-bit -> :: `pmotion2svg_x32.dll` (older PM versions)
+
+
+Then copy the appropriate DLL file to the "`plugins`" subfolder within Pro Motion's installation folder.
+Depending on the bitness of the installed Pro Motion edition, the plugins directory path will be located either at:
+
+[horizontal]
+Pro{nbsp}Motion{nbsp}64-bit -> :: `%PROGRAMFILES%\cosmigo\Pro Motion NG - V8\plugins\`
+Pro{nbsp}Motion{nbsp}32-bit -> :: `%PROGRAMFILES(X86)%\cosmigo\Pro Motion\plugins\`
+
+\... or something like that (the exact folder names have changed across different editions, but the parent "`cosmigo`" folder has been kept consistently named).
+You just have to find where Pro Motion is installed, and look for the "`plugins`" subfolder.
+
 
 [IMPORTANT]
 ====================================
-Future editions of {PMNG} might change the location of the `plugins/` folder to the User's `AppData/` directory tree -- a feature which has been planned for quite a while.
-In that case, just copy the plug-in DLL to the new `plugins/` folder path, as indicated in the
-https://www.cosmigo.com/promotion/docs/onlinehelp/UsingPlugins.htm[_Using Plugins_^]
+Future editions of {PMNG} might change the location of the "`plugins`" folder to the User's "`AppData`" directory tree -- a feature which has been planned for quite a while.
+In that case, just copy the plug-in DLL to the new "`plugins`" folder path, as indicated in the
+https://www.cosmigo.com/promotion/docs/onlinehelp/usingPlugins.htm[_Using Plugins_^]
 section of
 https://www.cosmigo.com/promotion/docs/onlinehelp/main.htm[Pro Motion NG's Documentation^].
 ====================================
@@ -158,7 +176,7 @@ https://www.cosmigo.com/promotion/docs/onlinehelp/main.htm[Pro Motion NG's Docum
 
 === System Requirements
 
-This plug-in was tested under Windows 10 x64 using Pro Motion NG version {PMNG_ver}, but should work also with older versions of Pro Motion that support plug-ins via the
+This plug-in was tested under Windows 10 x64 using Pro Motion NG version {PMNG_ver} and an earlier 32-bit version of Pro Motion NG, but should work also with older versions of Pro Motion that support plug-ins via the
 https://www.cosmigo.com/pixel_animation_software/plugins/developer-interface#File_IO_Plugin_Interface[File I/O interface^,title="Learn more about Pro Motion's File I/O interface"].
 
 If you need support for using this plug-in with older version of Pro Motion, please ask for help on the {CosmigoForum}.
@@ -181,7 +199,7 @@ This plug-in was heavily inspired by the {px2svg} tool (formerly {flamingshame})
 ..............................................................................
 MIT License
 
-Copyright (c) 2021 Tristano Ajmone
+Copyright (c) 2021-2024 Tristano Ajmone
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -201,5 +219,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ..............................................................................
-
-// EOF //

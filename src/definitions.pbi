@@ -2,11 +2,10 @@
 ;- CHECK COMPILER SETTINGS
 ;{==============================================================================
 CompilerIf #PB_Compiler_OS <> #PB_OS_Windows Or
-           #PB_Compiler_Processor <> #PB_Processor_x86 Or
            #PB_Compiler_ExecutableFormat <> #PB_Compiler_DLL Or
            #PB_Compiler_Thread = #True
   CompilerError "WRONG COMPILER SETTINGS! " +
-                "Must be Windows DLL for x86 (32 bit) not threadsafe"
+                "Must be Windows DLL (32 or 64 bit) not threadsafe"
 CompilerEndIf
 
 CompilerIf #PB_Compiler_Version <> #PUREBASIC_V
